@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Students details</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for youtuber in youtubers %}
+        <tr>
+            <td>{{ youtuber.name }}</td>
+            <td>{{ youtuber.department }}</td>
+            <td>{{ youtuber.salary }}</td>
+            <td>{{ youtuber.phone_number }}</td>
+            <td>
+                <a href="{% url 'youtuber_detail' youtuber.pk %}" class="btn btn-sm btn-info">View</a>
+                <a href="{% url 'youtuber_edit' youtuber.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'youtuber_delete' youtuber.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

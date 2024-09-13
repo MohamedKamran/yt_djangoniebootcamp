@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+<p><strong>Department:</strong> {{ object.department }}</p>
+<p><strong>Salary:</strong> {{ object.salary }}</p>
+<p><strong>Phone Number:</strong> {{ object.phone_number }}</p>
+<a href="{% url 'youtuber_edit' object.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'youtuber_delete' object.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'youtuber_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
